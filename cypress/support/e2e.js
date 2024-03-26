@@ -20,3 +20,6 @@ import './commands'
 // require('./commands')
 
 // Import XPath plugin
+
+require('cypress-xpath');
+

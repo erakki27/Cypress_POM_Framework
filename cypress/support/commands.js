@@ -29,3 +29,5 @@ Cypress.Commands.add("login",(username,password) => {
     cy.get('input[name="password"]').type(password)
     cy.get('input[name="submit"]').click();
 })
+
+/// <reference types="cypress-xpath" />
