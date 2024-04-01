@@ -10,9 +10,10 @@ class amazonloginpage{
         passwordreenter : () => cy.get('#ap_password_check'),
         continue :() => cy.get('#continue'),
 
-
+        signinoption : () => cy.get('.nav-action-inner'),
         email : () => cy.get("#ap_email"),
-        nextoption : () => cy.xpath('//input[@id="continue"]')
+        nextoption : () => cy.xpath('//input[@id="continue"]'),
+        singin : () => cy.get('#signInSubmit')
 
     }
 
@@ -48,6 +49,14 @@ class amazonloginpage{
     }
     clickoncontinue(){
         this.elements.continue().click()
+    }
+
+    clickonSignin(){
+        this.elements.singin().click()
+    }
+
+    signinoption(){
+        this.elements.signinoption().click()
     }
 }
 
