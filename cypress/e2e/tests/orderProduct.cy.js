@@ -15,10 +15,11 @@ describe ('Ordering Product' , () => {
         amazonloginobj.clickoncontinue();
         amazonloginobj.enterpassword('Star@27a');
         amazonloginobj.clickonSignin();
-        addProductobj.searchbar('Box');
+        addProductobj.searchbar('Mobile');
         addProductobj.clickonsearch();
-        //addProductobj.clickonproduct();
-        addProductobj.clickonaddtocart();
+        addProductobj.clickonproduct();
+       // addProductobj.clickonaddtocart();
+       addProductobj.clickonaddtocartInNewTab();
 
         })
         

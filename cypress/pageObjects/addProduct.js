@@ -4,10 +4,11 @@ class addProductpage {
     elements ={
         searchbar : () => cy.get('#twotabsearchtextbox'),
         search : () => cy.get('#nav-search-submit-button'),
-       product : () => cy.get('[data-cy="title-recipe"]'),
+       product : () => cy.get('[data-cy="title-recipe"]').eq(0).find('a').eq(2).invoke("attr", "target", "_self"),
       
 
-        addTocar : () => cy.get('#a-autoid-10-announce')
+        addTocar : () => cy.get('#a-autoid-10-announce'),
+        newtabAddcart : () => cy.xpath('(//input[@id="add-to-cart-button"])[2]')
     }
 
     searchbar(product){
@@ -19,11 +20,15 @@ class addProductpage {
     }
 
     clickonproduct(){
-        this.elements.product().invoke('removeAttr','target').eq(0).click();
+        cy.log(this.elements.product().click({force: true}));
     }
 
     clickonaddtocart(){
         this.elements.addTocar().click();
+    }
+
+    clickonaddtocartInNewTab(){
+        this.elements.newtabAddcart().click();
     }
 }
 
