@@ -19,8 +19,8 @@ describe ('Ordering Product' , () => {
         addProductobj.clickonsearch();
         addProductobj.clickonproduct();
        // addProductobj.clickonaddtocart();
-       addProductobj.clickonaddtocartInNewTab();
-       
+       //addProductobj.clickonaddtocartInNewTab();
+       addProductobj.clickonproductNewWindow();
 
         })
         

@@ -5,6 +5,7 @@ class addProductpage {
         searchbar : () => cy.get('#twotabsearchtextbox'),
         search : () => cy.get('#nav-search-submit-button'),
        product : () => cy.get('[data-cy="title-recipe"]').eq(0).find('a').eq(2).invoke("attr", "target", "_self"),
+       productWindowHandle : () => cy.get('[data-cy="title-recipe"]').eq(0),
       
 
         addTocar : () => cy.get('#a-autoid-10-announce'),
@@ -21,6 +22,16 @@ class addProductpage {
 
     clickonproduct(){
         cy.log(this.elements.product().click({force: true}));
+    }
+
+    clickonproductNewWindow(){
+        cy.window().then((win) =>{
+            cy.stub('win','open').as('popup').callsFake(url =>{
+                win.location.href = 'https://www.amazon.in/'+url;
+            })
+        })
+        this.elements.productWindowHandle().click();
+        cy.get('@popup').should('be.called')
     }
 
     clickonaddtocart(){
