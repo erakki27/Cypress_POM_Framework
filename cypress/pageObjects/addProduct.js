@@ -9,7 +9,8 @@ class addProductpage {
       
 
         addTocar : () => cy.get('#a-autoid-10-announce'),
-        newtabAddcart : () => cy.xpath('(//input[@id="add-to-cart-button"])[2]')
+        newtabAddcart : () => cy.xpath('(//input[@id="add-to-cart-button"])[2]'),
+        closecart : () => cy.get('#attach-close_sideSheet-link')
     }
 
     searchbar(product){
@@ -41,6 +42,10 @@ class addProductpage {
 
     clickonaddtocartInNewTab(){
         this.elements.newtabAddcart().click();
+    }
+
+    clickOnClose(){
+        this.elements.closecart().click()
     }
 }
 

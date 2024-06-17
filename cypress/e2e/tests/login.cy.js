@@ -3,7 +3,7 @@ import amazonloginpage from "../../pageObjects/amazonlogin";
 describe ('Amazon Test' , () => {
 
     beforeEach(function(){
-        cy.visit('https://www.amazon.com/');
+        cy.visit('/');
     })
 
     it('Verify Login Successfull' , () =>{

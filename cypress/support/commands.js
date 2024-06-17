@@ -25,9 +25,12 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("login",(username,password) => {
-    cy.get('input[name="userName"]').type(username)
-    cy.get('input[name="password"]').type(password)
-    cy.get('input[name="submit"]').click();
+    cy.visit('/')
+    cy.get("span[class='nav-line-2 ']").click()
+    cy.get('#ap_email').type("9986045672")
+    cy.get('#continue').click()
+    cy.get('#ap_password').type('Star@27a')
+    cy.get('#signInSubmit').click();
 })
 
 /// <reference types="cypress-xpath" />

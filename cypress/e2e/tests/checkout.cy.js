@@ -1,21 +1,33 @@
 import checkoutcar from "../../pageObjects/checkoutcart";
 import amazonloginpage from "../../pageObjects/amazonlogin";
+import addProductpage from "../../pageObjects/addProduct"
 
 describe ('Checkout cart' , () => {
     beforeEach(function(){
-        cy.visit('https://www.amazon.in/');
+        cy.login();
     })
-    it('Verify checkout from cart is successfull' , () =>{
-        const checkoutcarobj = new checkoutcar();
-        const amazonloginobj = new amazonloginpage();
 
-        amazonloginobj.clickonloginoption();
-        amazonloginobj.entermobileoremail('9986045672');
-        amazonloginobj.clickoncontinue();
-        amazonloginobj.enterpassword('Star@27a');
-        amazonloginobj.clickonSignin();
+    const checkoutcarobj = new checkoutcar();
+        const addProductobj = new addProductpage();
+
+    it('Verify checkout Before Adding Product' , () =>{
+
         checkoutcarobj.clickOncart();
+        checkoutcarobj.emprtycartmessage();
+
+    })
+
+    it('Verify checkout After Adding Product' , () =>{
+        addProductobj.searchbar('Mobile');
+        addProductobj.clickonsearch();
+        addProductobj.clickonproduct();
+       // addProductobj.clickonaddtocart();
+       addProductobj.clickonaddtocartInNewTab();
+       addProductobj.clickOnClose();
+       checkoutcarobj.clickOncart();
         checkoutcarobj.clickonproceedtobuy()
 
     })
+
+
 })
