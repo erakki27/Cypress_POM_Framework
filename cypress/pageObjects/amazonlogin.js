@@ -3,6 +3,7 @@
 class amazonloginpage{
     elements={
         loginoption  : () => cy.get("span[class='nav-line-2 ']"),
+       
         createnew : () => cy.get('#createAccountSubmit'),
         firstname : () => cy.get('#ap_customer_name'),
         mobileoremail : () => cy.get('#ap_email'),
