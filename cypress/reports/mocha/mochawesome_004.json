@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-09-17T17:44:48.844Z",
+    "end": "2024-09-17T17:45:00.024Z",
+    "duration": 11180,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "db9d7e00-3f14-490f-9c19-9bebffdea048",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\login.cy.js",
+      "file": "cypress\\e2e\\tests\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1f52910e-ac56-4b59-a4c1-d3b33a650843",
+          "title": "Amazon Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Login Successfull",
+              "fullTitle": "Amazon Test Verify Login Successfull",
+              "timedOut": null,
+              "duration": 10962,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const amazonloginobj = new _amazonlogin.default();\namazonloginobj.clickonloginoption();\namazonloginobj.entermobileoremail('9986045672');\namazonloginobj.clickoncontinue();\namazonloginobj.enterpassword('Star@27a');\namazonloginobj.clickonSignin();",
+              "err": {},
+              "uuid": "7c78b625-1162-46ce-8766-35de94bccf1d",
+              "parentUUID": "1f52910e-ac56-4b59-a4c1-d3b33a650843",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7c78b625-1162-46ce-8766-35de94bccf1d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10962,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-09-17T17:43:58.698Z",
+    "end": "2024-09-17T17:44:43.772Z",
+    "duration": 45074,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cba4a0e8-b0a8-4781-aa13-266acc34ffd4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\checkout.cy.js",
+      "file": "cypress\\e2e\\tests\\checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0684d25b-2af8-478d-9ee7-6743ff4ed952",
+          "title": "Checkout cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify checkout Before Adding Product",
+              "fullTitle": "Checkout cart Verify checkout Before Adding Product",
+              "timedOut": null,
+              "duration": 22898,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "checkoutcarobj.clickOncart();\ncheckoutcarobj.emprtycartmessage();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#nav-cart`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#nav-cart`, but never found it.\n    at Object.cart (webpack://ak/./cypress/pageObjects/checkoutcart.js:5:24)\n    at checkoutcar.clickOncart (webpack://ak/./cypress/pageObjects/checkoutcart.js:14:18)\n    at Context.eval (webpack://ak/./cypress/e2e/tests/checkout.cy.js:15:23)",
+                "diff": null
+              },
+              "uuid": "25a205cc-f711-479d-a4a6-2439cb608e12",
+              "parentUUID": "0684d25b-2af8-478d-9ee7-6743ff4ed952",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify checkout After Adding Product",
+              "fullTitle": "Checkout cart Verify checkout After Adding Product",
+              "timedOut": null,
+              "duration": 21761,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "addProductobj.searchbar('Mobile');\naddProductobj.clickonsearch();\naddProductobj.clickonproduct();\n// addProductobj.clickonaddtocart();\naddProductobj.clickonaddtocartInNewTab();\naddProductobj.clickOnClose();\ncheckoutcarobj.clickOncart();\ncheckoutcarobj.clickonproceedtobuy();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#twotabsearchtextbox`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#twotabsearchtextbox`, but never found it.\n    at Object.searchbar (webpack://ak/./cypress/pageObjects/addProduct.js:5:29)\n    at addProductpage.searchbar (webpack://ak/./cypress/pageObjects/addProduct.js:17:22)\n    at Context.eval (webpack://ak/./cypress/e2e/tests/checkout.cy.js:21:22)",
+                "diff": null
+              },
+              "uuid": "af807bf8-95eb-4a0c-a452-6fe37d9985af",
+              "parentUUID": "0684d25b-2af8-478d-9ee7-6743ff4ed952",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "25a205cc-f711-479d-a4a6-2439cb608e12",
+            "af807bf8-95eb-4a0c-a452-6fe37d9985af"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 44659,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
