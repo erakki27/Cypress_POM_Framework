@@ -22,4 +22,5 @@ import './commands'
 // Import XPath plugin
 
 require('cypress-xpath');
+require ('cypress-iframe')
 
