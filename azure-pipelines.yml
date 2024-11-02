@@ -1,0 +1,19 @@
+# Starter pipeline
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Npm@1
+  inputs:
+    command: 'install'
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    'npm run posttest'
+    echo Add other tasks to build, test, and deploy your project.
+     displayName: "npm install and Run Cypress test case in lambdatest cloud"
