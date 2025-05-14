@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 1,
+  "passes": 0,
+  "pending": 0,
+  "failures": 1,
+  "start": "2025-05-12T13:25:36.160Z",
+  "duration": 19073,
+  "file": "cypress\\e2e\\tests\\AllLinksOfPage.cy.js"
+}

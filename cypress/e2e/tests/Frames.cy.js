@@ -5,10 +5,10 @@ describe('Frames' ,() =>{
     
 });
 
-if('click on frame' , () =>{
+it('click on frame' , () =>{
     
     cy.frameLoaded('#a077aa5e')
-    cy.iframe('#a077aa5e').click();
+    cy.iframe('//a/img').click();
 
 });
 

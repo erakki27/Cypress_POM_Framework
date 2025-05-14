@@ -15,8 +15,6 @@ describe ('Ordering Product' , () => {
         addProductobj.clickonproduct();
        // addProductobj.clickonaddtocart();
        addProductobj.clickonaddtocartInNewTab();
-       
-
         })
         
     })

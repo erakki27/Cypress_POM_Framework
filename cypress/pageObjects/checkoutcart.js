@@ -1,4 +1,4 @@
-/// <reference types="Cypress"/>
+
 
 class checkoutcar {
     elements ={
