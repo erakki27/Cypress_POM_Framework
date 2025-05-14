@@ -18,7 +18,8 @@ steps:
   - script: |
       npm ci
       npm install --force
-    displayName: 'Install Dependencies & Cypress'
+       chmod +x ./node_modules/.bin/cypress
+    displayName: 'Install and Fix Cypress Binary Permissions'
 
   - script: |
       echo "Verifying Cypress binary..."
