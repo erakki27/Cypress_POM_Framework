@@ -31,8 +31,8 @@ steps:
 
   # ✅ Step 4: Install Cypress (skips download if cached binary is present)
   - script: |
-      npm install --force
-    displayName: 'Install Cypress binary'
+      npx cypress verify
+    displayName: 'Verify Cypress Installation'
     
   - script: |
       chmod +x ./node_modules/.bin/cypress
