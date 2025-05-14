@@ -1,19 +1,50 @@
-# Starter pipeline
+# azure-pipelines.yml
 
 trigger:
-- main
+  branches:
+    include:
+      - main  # Change to your branch name
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
+
+variables:
+  CYPRESS_CACHE_FOLDER: $(Pipeline.Workspace)/.cache/Cypress
 
 steps:
-- task: Npm@1
-  inputs:
-    command: 'install'
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'
+    displayName: 'Install Node.js'
 
-- script: |
-    'npm run posttest'
-    echo Add other tasks to build, test, and deploy your project.
-     displayName: "npm install and Run Cypress test case in lambdatest cloud"
+  - script: |
+      npm install
+    displayName: 'Install dependencies'
+
+  - script: |
+      npx cypress install
+    displayName: 'Install Cypress binary'
+
+  - script: |
+      npx cypress run
+    displayName: 'Run Cypress tests'
+
+  # Optional: Publish test results if using JUnit reporter
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFiles: '**/cypress/results/*.xml'
+      testRunTitle: 'Cypress Tests'
+    condition: succeededOrFailed()
+
+  # Optional: Publish videos/screenshots from Cypress
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: 'cypress/videos'
+      ArtifactName: 'cypress-videos'
+    condition: succeededOrFailed()
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: 'cypress/screenshots'
+      ArtifactName: 'cypress-screenshots'
+    condition: succeededOrFailed()
