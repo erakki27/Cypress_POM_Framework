@@ -22,10 +22,6 @@ steps:
     displayName: 'Install dependencies'
 
   - script: |
-      npx cypress install
-    displayName: 'Install Cypress binary'
-
-  - script: |
       npx cypress run
     displayName: 'Run Cypress tests'
 
