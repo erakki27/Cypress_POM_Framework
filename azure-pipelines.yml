@@ -33,11 +33,16 @@ steps:
   - script: |
       npm install --force
     displayName: 'Install Cypress binary'
+    
+  - script: |
+      chmod +x ./node_modules/.bin/cypress
+    displayName: 'Fix Cypress binary permissions'
 
   # ✅ Step 6: Run Cypress tests
   - script: |
       npx cypress run
     displayName: 'Run Cypress tests'
+
 
   # ✅ Step 7: Publish screenshots/videos on failure
   - task: PublishBuildArtifacts@1
