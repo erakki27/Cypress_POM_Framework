@@ -34,11 +34,6 @@ steps:
       npm install --force
     displayName: 'Install Cypress binary'
 
-  # ✅ Step 5: Verify Cypress installation
-  - script: |
-      npx cypress verify
-    displayName: 'Verify Cypress binary'
-
   # ✅ Step 6: Run Cypress tests
   - script: |
       npx cypress run
