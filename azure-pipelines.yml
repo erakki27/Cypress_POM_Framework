@@ -18,7 +18,7 @@ steps:
     displayName: 'Install Node.js'
 
   - script: |
-      npm install
+      npm install --force
     displayName: 'Install dependencies'
 
   - script: |
