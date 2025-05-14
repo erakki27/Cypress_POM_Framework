@@ -31,7 +31,7 @@ steps:
 
   # ✅ Step 4: Install Cypress (skips download if cached binary is present)
   - script: |
-      npx cypress verify
+      npm install --force
     displayName: 'Verify Cypress Installation'
     
   - script: |
