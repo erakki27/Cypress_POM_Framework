@@ -1,9 +1,7 @@
-# azure-pipelines.yml
-
 trigger:
   branches:
     include:
-      - main  # Change to your branch name
+      - main
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -18,26 +16,20 @@ steps:
     displayName: 'Install Node.js'
 
   - script: |
-      npm install --force
-    displayName: 'Install dependencies'
+      npm ci
+      npx cypress install
+    displayName: 'Install Dependencies & Cypress'
 
   - script: |
-      npx cypress install
-      chmod +x ./node_modules/.bin/cypress
-    displayName: 'Install and Fix Cypress Binary Permissions'
+      echo "Verifying Cypress binary..."
+      npx cypress verify
+    displayName: 'Verify Cypress Binary'
 
   - script: |
       npx cypress run
-    displayName: 'Run Cypress tests'
+    displayName: 'Run Cypress Tests'
 
-  # Optional: Publish test results if using JUnit reporter
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFiles: '**/cypress/results/*.xml'
-      testRunTitle: 'Cypress Tests'
-    condition: succeededOrFailed()
-
-  # Optional: Publish videos/screenshots from Cypress
+  # Optional: Publish screenshots and videos
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: 'cypress/videos'
