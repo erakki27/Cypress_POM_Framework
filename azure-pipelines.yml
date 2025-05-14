@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - main
+      - main  # Change this to your active development branch
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -10,27 +10,41 @@ variables:
   CYPRESS_CACHE_FOLDER: $(Pipeline.Workspace)/.cache/Cypress
 
 steps:
+  # ✅ Step 1: Use Node.js
   - task: NodeTool@0
     inputs:
       versionSpec: '18.x'
     displayName: 'Install Node.js'
 
+  # ✅ Step 2: Cache Cypress Binary across builds
+  - task: Cache@2
+    inputs:
+      key: 'cypress | "$(Agent.OS)" | package-lock.json'
+      path: $(CYPRESS_CACHE_FOLDER)
+      cacheHitVar: CYPRESS_CACHE_RESTORED
+    displayName: 'Restore Cypress Binary from Cache'
+
+  # ✅ Step 3: Install project dependencies
   - script: |
       npm ci
-      npm install --force
-       chmod +x ./node_modules/.bin/cypress
-    displayName: 'Install and Fix Cypress Binary Permissions'
+    displayName: 'Install npm dependencies'
 
+  # ✅ Step 4: Install Cypress (skips download if cached binary is present)
   - script: |
-      echo "Verifying Cypress binary..."
-      npx cypress verify
-    displayName: 'Verify Cypress Binary'
+      npm install --force
+    displayName: 'Install Cypress binary'
 
+  # ✅ Step 5: Verify Cypress installation
+  - script: |
+      npx cypress verify
+    displayName: 'Verify Cypress binary'
+
+  # ✅ Step 6: Run Cypress tests
   - script: |
       npx cypress run
-    displayName: 'Run Cypress Tests'
+    displayName: 'Run Cypress tests'
 
-  # Optional: Publish screenshots and videos
+  # ✅ Step 7: Publish screenshots/videos on failure
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: 'cypress/videos'
