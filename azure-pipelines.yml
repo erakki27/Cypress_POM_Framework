@@ -26,7 +26,7 @@ steps:
 
   # ✅ Step 3: Install project dependencies
   - script: |
-      npm ci
+      npm install --force
     displayName: 'Install npm dependencies'
 
   # ✅ Step 4: Install Cypress (skips download if cached binary is present)
