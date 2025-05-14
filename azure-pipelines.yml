@@ -7,7 +7,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  CYPRESS_CACHE_FOLDER: $(Pipeline.Workspace)/.cache/Cypress
+  CYPRESS_CACHE_FOLDER: /home/vsts/.cache/Cypress
 
 steps:
   # ✅ Step 1: Use Node.js
