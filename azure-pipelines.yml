@@ -24,11 +24,7 @@ steps:
 
   - script: |
       npm install --force
-    displayName: 'Install npm dependencies'
-
-  - script: |
-      npx cypress verify
-    displayName: 'Verify Cypress binary'
+    displayName: 'Install dependencies'
 
   - script: |
       sudo apt-get update
@@ -36,12 +32,19 @@ steps:
     displayName: 'Install Xvfb'
 
   - script: |
-     chmod -R +x ./node_modules/.bin
-    displayName: 'Fix Cypress binary permissions'
+      echo "Fixing binary permissions..."
+      chmod -R +x ./node_modules/.bin
+
+      echo "Verifying Cypress..."
+      ./node_modules/.bin/cypress verify || (
+        echo "Cypress verify failed. Reinstalling Cypress..."
+        npm install cypress --force
+      )
+    displayName: 'Fix permissions and verify Cypress binary'
 
   - script: |
       export PATH=$PATH:./node_modules/.bin
-      xvfb-run -a npx cypress run
+      xvfb-run -a ./node_modules/.bin/cypress run
     displayName: 'Run Cypress tests'
     env:
       CI: true
