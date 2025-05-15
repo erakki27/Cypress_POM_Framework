@@ -36,6 +36,10 @@ steps:
     displayName: 'Install Xvfb'
 
   - script: |
+     chmod -R +x ./node_modules/.bin
+    displayName: 'Fix Cypress binary permissions'
+
+  - script: |
       export PATH=$PATH:./node_modules/.bin
       xvfb-run -a npx cypress run
     displayName: 'Run Cypress tests'
